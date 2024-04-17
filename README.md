@@ -12,7 +12,7 @@ docker build -t deemack/<image-name> .
 ````
 - Upload the image to docker hub so that it may be pulled and used in containers.
 
-Chores
+# Chores
 You must create the jar file and place it in the root with the Dockerfile and run
 ````
 docker build -t deemack/chores-java:1.x .
