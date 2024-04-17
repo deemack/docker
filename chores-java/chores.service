@@ -1,9 +1,0 @@
-[Unit]
-Description=Chores app service
-[Service]
-Type=Simple
-RestartSec=1
-User=dave
-ExecStart=/bin/bash /ect/systemd/system/chores.service
-[Install]
-WantedBy=multi-user.target
