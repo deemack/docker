@@ -12,6 +12,9 @@ COPY --chown=jenkins:jenkins plugins.txt /usr/share/jenkins/ref/plugins.txt
 # run the install-plugins script to install the plugins
 RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
 
+# copy the seedjob file into the image
+COPY seedjob.groovy /usr/local/seedjob.groovy
+
 # copy the config-as-code yaml file into the image
 COPY jenkins-casc.yaml /usr/local/jenkins-casc.yaml
 
