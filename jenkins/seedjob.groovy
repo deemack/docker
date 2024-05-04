@@ -7,7 +7,7 @@
  * @param path The path to the Jenkinsfile (defaults to cicd)
  * @return
  */
-def createPipelineJob(final String repo, final String path = 'cicd') {
+def createPipelineJob(final String repo, final String slash, final String path = 'cicd') {
 
     final String groupName = repo.substring(0, repo.lastIndexOf("/"))
     final String repoName = repo.substring(repo.lastIndexOf("/") + 1, repo.length())
@@ -33,5 +33,5 @@ def createPipelineJob(final String repo, final String path = 'cicd') {
     }
 }
 
-createPipelineJob("deemack/test", "/", "jobs")
+createPipelineJob("deemack/test", "/", "jobs/")
 createPipelineJob("deemack/chores", "","")
