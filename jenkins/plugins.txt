@@ -2,3 +2,4 @@ configuration-as-code:1775.v810dc950b_514
 workflow-aggregator:596.v8c21c963d92d
 maven-plugin:3.23
 git:5.2.1
+kubernetes:4209.vc646b_71e5269
