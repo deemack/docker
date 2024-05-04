@@ -19,14 +19,14 @@ def createPipelineJob(final String repo, final String path = 'cicd') {
                 scm {
                     git {
                         remote {
-                            url("https://github.com/deemack/" + repo +".git")
+                            url("https://github.com/" + repo +".git")
                         }
 
                         branches("*/main")
                     }
                 }
 
-                scriptPath("src/${path}/Jenkinsfile")
+                scriptPath("${path}/Jenkinsfile")
             }
         }
     }
@@ -36,4 +36,4 @@ createPipelineJob("deemack/test", "jobs")
 
 
 //createPipelineJobs("sommerfeld.sebastian/docker-jenkins-pipelines")
-createPipelineJobs("deemack/test")
+//createPipelineJobs("deemack/test")
