@@ -49,4 +49,4 @@ def createPipelineJobs(final String repo) {
 }
 
 //createPipelineJobs("sommerfeld.sebastian/docker-jenkins-pipelines")
-createPipelineJobs("deemack/chores")
+createPipelineJobs("deemack/test")
