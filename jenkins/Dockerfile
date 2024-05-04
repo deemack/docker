@@ -1,4 +1,5 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:latest-jdk21
 ENV JAVA_OPTS "-Djenkins.install.runSetupWizard=false ${JAVA_OPTS:-}"
 USER jenkins
-RUN jenkins-plugin-cli --plugins "configuration-as-code:1775.v810dc950b_514"
+COPY --chown=jenkins:jenkins plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
