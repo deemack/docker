@@ -31,7 +31,7 @@ def createPipelineJobs(final String repo) {
                     scm {
                         git {
                             remote {
-                                url("git@gitlab.com:" + repo +".git")
+                                url("https://github.com/" + repo +".git")
                             }
 
                             branches("*/main")
