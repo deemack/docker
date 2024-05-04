@@ -33,7 +33,3 @@ def createPipelineJob(final String repo, final String path = 'cicd') {
 }
 
 createPipelineJob("deemack/test", "jobs")
-
-
-//createPipelineJobs("sommerfeld.sebastian/docker-jenkins-pipelines")
-//createPipelineJobs("deemack/test")
