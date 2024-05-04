@@ -21,7 +21,7 @@ def createPipelineJobs(final String repo) {
     sleep(30000)
 
     // Iterate folders containing the Jenkinsfiles and create pipeline jobs
-    new File('docker-jenkins-pipelines/src/main/jobs').eachFile FileType.DIRECTORIES, {
+    new File('test/jobs').eachFile FileType.DIRECTORIES, {
         String folderName = it.name
         String jobName = groupName + "___" + repoName + "___" + folderName
 
@@ -31,7 +31,7 @@ def createPipelineJobs(final String repo) {
                     scm {
                         git {
                             remote {
-                                url("https://github.com/" + repo +".git")
+                                url("git@gitlab.com:" + repo +".git")
                             }
 
                             branches("*/main")
@@ -39,7 +39,7 @@ def createPipelineJobs(final String repo) {
                         }
                     }
 
-                    scriptPath("src/main/jobs/${folderName}/Jenkinsfile")
+                    scriptPath("jobs/${folderName}/Jenkinsfile")
                 }
             }
         }
