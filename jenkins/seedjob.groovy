@@ -20,16 +20,18 @@ def createPipelineJob(final String repo, final String path = 'cicd') {
                     git {
                         remote {
                             url("https://github.com/" + repo +".git")
+                            credentials('jenkins-github')
                         }
 
                         branches("*/main")
                     }
                 }
 
-                scriptPath("${path}/Jenkinsfile")
+                scriptPath("${path}${slash}Jenkinsfile")
             }
         }
     }
 }
 
-createPipelineJob("deemack/test", "jobs")
+createPipelineJob("deemack/test", "/", "jobs")
+createPipelineJob("deemack/chores", "","")
