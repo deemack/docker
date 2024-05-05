@@ -26,25 +26,25 @@ jenkins:
   numExecutors: 1
 
   # Set the jdk and maven tools to download on demand
-  tool:
-    git:
-      installations:
-      - home: "git"
-        name: "Default"
-    jdk:
-      installations:
-      - name: "jdk"
-    maven:
-      installations:
-      - name: "maven"
-        properties:
-        - installSource:
-            installers:
-            - maven:
-                id: "3.9.6"
-    mavenGlobalConfig:
-      globalSettingsProvider: "standard"
-      settingsProvider: "standard"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - name: "jdk"
+  maven:
+    installations:
+    - name: "maven"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.9.6"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"
 
   # Add the kubernetes cloud
   clouds:
