@@ -46,7 +46,35 @@ jenkins:
     globalSettingsProvider: "standard"
     settingsProvider: "standard"
 
-# specify the seedjob groovy script that will create the  pipelines for us
+  # Add the kubernetes cloud
+  clouds:
+  - kubernetes:
+      containerCap: 10
+      containerCapStr: "10"
+      #credentialsId: "3ac431ef-0433-4703-ab1c-39ef409fbd41"
+      jenkinsUrl: "http://jenkins-service.jenkins.svc.cluster.local:8080"
+      name: "kubernetes"
+      namespace: "jenkins"
+      templates:
+      - containers:
+        - args: "9999999"
+          command: "sleep"
+          image: "eclipse-temurin:21-jdk-alpine"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "maven"
+          workingDir: "/home/jenkins/agent"
+        #id: "5e6a7f2d-87f7-49b1-a176-63359b82901f"
+        label: "maven"
+        name: "maven"
+        namespace: "jenkins"
+        serviceAccount: "jenkins-admin"
+        yamlMergeStrategy: "override"
+      webSocket: true
 
 # Set sshHostKeyVerificationStrategy so that we don't have to add to the knownHosts file
 security:
