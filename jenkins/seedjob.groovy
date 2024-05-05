@@ -7,7 +7,7 @@
  * @param path The path to the Jenkinsfile (defaults to cicd)
  * @return
  */
-def createPipelineJob(final String repo, final String slash, final String path = 'cicd') {
+def createPipelineJob(final String repo, final String path = 'cicd') {
 
     final String groupName = repo.substring(0, repo.lastIndexOf("/"))
     final String repoName = repo.substring(repo.lastIndexOf("/") + 1, repo.length())
@@ -19,7 +19,7 @@ def createPipelineJob(final String repo, final String slash, final String path =
                 scm {
                     git {
                         remote {
-                            url("https://github.com/" + repo +".git")
+                            url("git@github.com:" + repo +".git")
                             credentials('jenkins-github')
                         }
 
@@ -27,11 +27,10 @@ def createPipelineJob(final String repo, final String slash, final String path =
                     }
                 }
 
-                scriptPath("${path}${slash}Jenkinsfile")
+                scriptPath("${path}Jenkinsfile")
             }
         }
     }
 }
 
-createPipelineJob("deemack/test", "/", "jobs/")
-createPipelineJob("deemack/chores", "","")
+createPipelineJob("deemack/chores","")
