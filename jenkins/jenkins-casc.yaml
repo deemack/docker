@@ -47,5 +47,12 @@ jenkins:
     settingsProvider: "standard"
 
 # specify the seedjob groovy script that will create the  pipelines for us
+
+# Set sshHostKeyVerificationStrategy so that we don't have to add to the knownHosts file
+security:
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy: "acceptFirstConnectionStrategy"
+
+# Run the seed job to create the projects
 jobs:
   - file: /usr/local/seedjob.groovy
